@@ -9,15 +9,13 @@ const useStyles = makeStyles((theme2) => ({
         marginTop: theme.spacing(11)
     }
 }));
-const RightBar = () => {
+const Feed = () => {
     const classes = useStyles({})
     return (
         <Container className={classes.container}>
-            RightBar
+            Feed
         </Container>
-
-
     );
 }
 
-export default RightBar;
+export default Feed;

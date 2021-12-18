@@ -1,11 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
-import { styled, alpha } from '@mui/material/styles';
+import { alpha } from '@mui/material/styles';
 import { AppBar, Avatar, Badge, InputBase, Toolbar, Typography } from '@mui/material';
 import { createTheme } from '@mui/material/styles'
-import { Mail, Notifications, Search } from '@mui/icons-material';
+import { Cancel, Mail, Notifications, Search } from '@mui/icons-material';
+import { display } from '@mui/system';
 
-//just initialized a .git in my local folder
+
 const theme = createTheme();
 const useStyles = makeStyles((theme2) => ({
 
@@ -35,19 +37,31 @@ const useStyles = makeStyles((theme2) => ({
         borderRadius: theme.shape.borderRadius,
         width: "50%",
         [theme.breakpoints.down('sm')]: {
+            display: (props) => (props.open ? "flex" : "none"),
+            width: "50%",
+
+        },
+    },
+    input: {
+        color: "white",
+        marginLeft: theme.spacing(2)
+    },
+    cancel: {
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
             display: "none"
         },
     },
     searchButton: {
         marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+            display: "none"
+        },
     },
     icons: {
-        display: "flex",
-        alignItems: "center"
-    },
-    input: {
-        color: "white",
-        marginLeft: theme.spacing(2)
+        alignItems: "center",
+
+        display: (props) => (props.open ? "none" : "flex")
     },
     badge: {
         marginRight: theme.spacing(2)
@@ -55,9 +69,10 @@ const useStyles = makeStyles((theme2) => ({
 }));
 
 const NavBar = () => {
-    const classes = useStyles()
+    const [open, setOpen] = useState(false)
+    const classes = useStyles({ open })
     return (
-        <AppBar>
+        <AppBar position="fixed">
             <Toolbar className={classes.toolbar}>
                 <Typography variant="h6" className={classes.logoLg}>
                     ZeeBites Dev
@@ -68,9 +83,14 @@ const NavBar = () => {
                 <div className={classes.search}>
                     <Search />
                     <InputBase placeholder="Search..." className={classes.input} />
+                    <div className={classes.cancel}><Cancel onClick={() => setOpen(false)} /></div>
                 </div>
                 <div className={classes.icons}>
-                    <Search className={classes.searchButton} />
+                    <div className={classes.searchButton}>
+                        <Search
+                            onClick={() => setOpen(true)}
+                        />
+                    </div>
                     <Badge badgeContent={4} color="secondary" className={classes.badge} >
                         <Mail />
                     </Badge>
