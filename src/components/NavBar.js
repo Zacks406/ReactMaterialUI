@@ -6,6 +6,10 @@ import { AppBar, Avatar, Badge, InputBase, Toolbar, Typography } from '@mui/mate
 import { createTheme } from '@mui/material/styles'
 import { Cancel, Mail, Notifications, Search } from '@mui/icons-material';
 import { display } from '@mui/system';
+import paella from "../images/paella.jpg";
+import md from "../images/md.jpg"
+import che from "../images/che.jpg"
+
 
 
 const theme = createTheme();
@@ -60,7 +64,6 @@ const useStyles = makeStyles((theme2) => ({
     },
     icons: {
         alignItems: "center",
-
         display: (props) => (props.open ? "none" : "flex")
     },
     badge: {
@@ -97,8 +100,9 @@ const NavBar = () => {
                     <Badge badgeContent={2} color="secondary" className={classes.badge}>
                         <Notifications />
                     </Badge >
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                    <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+                    <Avatar alt="Remy Sharp" src={paella} />
+                    <Avatar alt="Remy Sharp" src={che} />
+                    <Avatar alt="Travis Howard" src={md} />
                 </div>
             </Toolbar >
         </AppBar >

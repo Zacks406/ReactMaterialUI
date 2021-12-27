@@ -6,6 +6,7 @@ import LeftBar from './components/LeftBar';
 import Feed from './components/Feed';
 import RightBar from './components/RightBar';
 import { Grid } from '@mui/material';
+import Add from './components/Add';
 
 
 const theme = createTheme();
@@ -36,6 +37,7 @@ const App = () => {
           <RightBar />
         </Grid>
       </Grid>
+      <Add />
     </div>
   );
 }

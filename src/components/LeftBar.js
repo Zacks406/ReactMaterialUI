@@ -4,9 +4,6 @@ import { createTheme } from '@mui/material/styles'
 import { Bookmark, ExitToApp, Home, Person, List, PhotoCamera, PlayCircleOutline, Settings, Storefront, TabletMac } from '@mui/icons-material';
 import { Container, Typography } from '@mui/material';
 
-
-
-
 const theme = createTheme();
 const useStyles = makeStyles((theme2) => ({
     container: {
@@ -14,11 +11,13 @@ const useStyles = makeStyles((theme2) => ({
         color: "white",
         marginTop: theme.spacing(7),
         backgroundColor: theme.palette.primary.main,
+        position: "sticky",
+        top: 0,
         [theme.breakpoints.up("sm")]: {
             marginTop: theme.spacing(8),
             backgroundColor: "white",
             color: "#555",
-            border: "1px solid #ece7e7"
+            border: "2px solid #ece7e7"
 
         },
     },
@@ -53,7 +52,7 @@ const LeftBar = () => {
             </div>
             <div className={classes.item}>
                 <Home className={classes.icon}></Home>
-                <Typography className={classes.text}>HomePage</Typography>
+                <Typography className={classes.text}>Home</Typography>
             </div>
             <div className={classes.item}>
                 <Person className={classes.icon}></Person>
